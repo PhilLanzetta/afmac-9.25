@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "Sohne";
+  src: url(../fonts/SohneMono.otf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sohne Kraftig";
+  src: url(../fonts/SohneMono-Kraftig.otf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sohne Kraftig";
+  src: url(../fonts/SohneMono-Kraftig-Italic.otf) format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Druk";
+  src: url(../fonts/Druk.otf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas";
+  src: url(../fonts/NeueHaas.eot) format("embedded-opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 400ms;
+}
+
+a:hover {
+  opacity: 0.5;
+  transition: all 400ms;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  transition: all 400ms;
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-family: "Druk", sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(50px, calc(1rem + 3vw), 400px);
+  letter-spacing: 1px;
+  font-weight: normal;
+}
+
+.center {
+  text-align: center;
+}
+
+@media screen and (max-width: 1100px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 14px;
+  }
+
+  a:hover {
+    opacity: 1;
+    transition: all 400ms;
+  }
+}

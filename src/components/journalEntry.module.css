@@ -1,0 +1,166 @@
+.journalMain {
+  min-height: 100vh;
+  padding: 180px clamp(calc(10px + 1rem), 20vw, 2000px);
+  padding-bottom: 20px;
+  font-family: "Sohne Kraftig", sans-serif;
+  background: #fff;
+}
+
+.date {
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.headerImage {
+  margin-top: 20px;
+}
+
+.textModule {
+  margin-bottom: 80px;
+}
+
+.textModule h1 {
+  font-weight: normal;
+  font-size: calc(1rem + 2.5vw);
+  margin-bottom: 1rem;
+}
+
+.textModule h2 {
+  font-weight: normal;
+  font-size: calc(1rem + 2vw);
+  margin-bottom: 1rem;
+}
+
+.textModule h3 {
+  font-weight: normal;
+  font-size: calc(1rem + 1.5vw);
+  margin-bottom: 1rem;
+}
+
+.imageModule {
+  width: 120%;
+  margin: 100px -10%;
+}
+
+.twoColumn {
+  display: flex;
+  width: 120%;
+  margin: 100px -10%;
+  gap: 20px;
+  margin-bottom: 100px;
+}
+
+.imageModuleWithCaption {
+  width: 120%;
+  margin: 100px -10%;
+  margin-bottom: 0;
+}
+
+.imageModuleCaption {
+  width: 120%;
+  margin-top: 5px;
+  margin-left: -10%;
+  margin-bottom: 100px;
+}
+
+.twoColumnCaption {
+  margin-top: 5px;
+}
+
+.imageModuleCaption p,
+.twoColumnCaption p {
+  margin-bottom: 0;
+  text-align: left;
+  font-size: 0.6rem;
+}
+
+.videoContainer {
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+.heroVideo {
+  overflow: hidden;
+  width: 120%;
+  margin-left: -10%;
+}
+
+.relatedContainer {
+  padding: 80px clamp(10px, 3vw, 500px);
+  font-family: "Sohne Kraftig", sans-serif;
+}
+
+.related {
+  font-weight: normal;
+  font-size: calc(1rem + 1vw);
+  margin-bottom: 40px;
+}
+
+.supplementalContainer {
+  column-count: 4;
+}
+
+.supplementalTile {
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid-column;
+  align-items: center;
+  gap: 10px;
+}
+
+.supplementalTile p {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.supplementalDisplay {
+  width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  .journalMain {
+    padding: 180px 10px 20px 10px;
+  }
+
+  .heroVideo {
+    overflow: hidden;
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .textModule {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .imageModule {
+    width: 100%;
+    margin: 40px 0;
+  }
+
+  .twoColumn {
+    width: 100%;
+    flex-direction: column;
+    margin: 40px 0;
+  }
+
+  .imageModuleWithCaption {
+    width: 100%;
+    margin: 40px 0;
+    margin-bottom: 0;
+  }
+
+  .imageModuleCaption {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 40px;
+  }
+
+  .supplementalContainer {
+    column-count: 2;
+  }
+
+  .relatedContainer {
+    padding-top: 0px;
+  }
+}

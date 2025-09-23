@@ -1,0 +1,116 @@
+.videoPlayerContainer {
+  display: block;
+  width: 100%;
+}
+
+.videoPlayer {
+  position: relative;
+}
+
+.videoPlayerVideo,
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.overlay {
+  z-index: 10000;
+}
+
+.videoPlayerVideo iframe {
+  height: 100%;
+  width: 100%;
+}
+
+.coverImageContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.coverImage {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.playOverlay {
+  position: absolute;
+  z-index: 20;
+  height: 40px;
+  width: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.playOverlayDesktop {
+  position: absolute;
+  z-index: 20;
+  height: 60px;
+  width: 60px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.overlayPlayBtn {
+  height: 100%;
+  width: 100%;
+}
+
+.fullScreenBtn {
+  position: absolute;
+  z-index: 15000;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.homeVideoMute {
+  position: absolute;
+  right: 3vw;
+  bottom: 3vw;
+  display: flex;
+  height: 30px;
+  width: 30px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.homeVideoSound {
+  position: absolute;
+  right: 3vw;
+  bottom: 3vw;
+  display: flex;
+  height: 30px;
+  width: 30px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.homeVideoMute svg {
+  height: clamp(15px, 2vw, 24px);
+  width: clamp(15px, 2vw, 24px);
+}
+
+.homeVideoSound svg {
+  height: clamp(20px, 2vw, 30px);
+  width: clamp(20px, 2vw, 30px);
+}
+
+@media screen and (max-width: 900px) {
+  .playOverlayDesktop {
+    display: none;
+  }
+}
