@@ -194,6 +194,7 @@
   letter-spacing: 1px;
   font-weight: normal;
   padding-bottom: 20px;
+  position: relative;
 }
 
 .heroImage {

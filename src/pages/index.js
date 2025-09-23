@@ -28,6 +28,8 @@ const Index = ({ location, data }) => {
 
   const collective = data.contentfulCollectivePage.collective
 
+  const leadership = data.contentfulAboutPage.leadership
+
   const { width, height } = useWindowSize()
 
   const isMobile = height > width
@@ -183,6 +185,18 @@ const Index = ({ location, data }) => {
           <div className={styles.journalContainer}>
             <h2 className='heading'>Collective</h2>
             <div className={styles.collectiveHeader}>
+              {leadership.map((member, index) => (
+                <a
+                  href={`/about/#${slugify(member.name, { lower: true })}`}
+                  key={index}
+                  className={styles.headerAnchor}
+                  onMouseEnter={
+                    width > 920 ? () => setHeroImage(member.headshot) : null
+                  }
+                >
+                  {member.name}
+                </a>
+              ))}
               {collective.map((member, index) => (
                 <a
                   href={`/collective/#${slugify(member.name, { lower: true })}`}
@@ -318,6 +332,15 @@ export const query = graphql`
           gatsbyImageData(layout: FULL_WIDTH)
         }
         name
+      }
+    }
+    contentfulAboutPage {
+      leadership {
+        name
+        headshot {
+          gatsbyImageData
+          description
+        }
       }
     }
   }

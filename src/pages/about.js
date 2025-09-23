@@ -1,9 +1,10 @@
-import React from "react"
-import { graphql } from "gatsby"
-import * as styles from "../components/about.module.css"
-import { GatsbyImage } from "gatsby-plugin-image"
-import { Fade } from "react-awesome-reveal"
-import Seo from "../components/seo"
+import React from 'react'
+import { graphql } from 'gatsby'
+import * as styles from '../components/about.module.css'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { Fade } from 'react-awesome-reveal'
+import Seo from '../components/seo'
+import slugify from 'slugify'
 
 const About = ({ data, location }) => {
   const {
@@ -19,7 +20,7 @@ const About = ({ data, location }) => {
   return (
     <div className={styles.aboutMain}>
       <Fade triggerOnce={true}>
-        <h1 className="heading center">About</h1>
+        <h1 className='heading center'>About</h1>
       </Fade>
       <Fade triggerOnce={true}>
         <div
@@ -39,8 +40,11 @@ const About = ({ data, location }) => {
       </Fade>
       {leadership.map((artist, index) => (
         <Fade triggerOnce={true} key={index}>
-          <div className={styles.leaderCard}>
-            <p className="heading">About {artist.name}</p>
+          <div
+            className={styles.leaderCard}
+            id={`${slugify(artist.name, { lower: true })}`}
+          >
+            <p className='heading'>About {artist.name}</p>
             <div className={styles.artistInfo}>
               <GatsbyImage
                 image={artist.headshot.gatsbyImageData}
@@ -59,7 +63,7 @@ const About = ({ data, location }) => {
       ))}
       <Fade triggerOnce={true}>
         <div className={styles.artCarContainer}>
-          <p className="heading">BMW Group Culture</p>
+          <p className='heading'>BMW Group Culture</p>
           <div className={styles.artistInfo}>
             <GatsbyImage
               image={artCarImage.gatsbyImageData}
@@ -76,13 +80,13 @@ const About = ({ data, location }) => {
         </div>
       </Fade>
       <Fade triggerOnce={true}>
-        <p className="heading center">Partners</p>
+        <p className='heading center'>Partners</p>
         <div className={styles.logoContainer}>
           {partners.map((partner, index) => (
             <a
               href={partner.link}
-              target="_blank"
-              rel="noreferrer"
+              target='_blank'
+              rel='noreferrer'
               className={styles.logo}
             >
               <GatsbyImage
@@ -97,7 +101,7 @@ const About = ({ data, location }) => {
       {donateText && (
         <Fade triggerOnce={true}>
           <div className={styles.artCarContainer}>
-            <p className="heading">Support</p>
+            <p className='heading'>Support</p>
             <div className={styles.artistInfo}>
               <GatsbyImage
                 image={donateImage.gatsbyImageData}
@@ -172,6 +176,6 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="About" />
+export const Head = () => <Seo title='About' />
 
 export default About
