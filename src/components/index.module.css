@@ -1,7 +1,8 @@
 .indexMain {
   min-height: 100vh;
   background: #000;
-  padding: 180px clamp(calc(10px + 1rem), 3vw, 500px);
+  padding: 180px clamp(calc(10px + 1rem), 3vw, 500px) 40px
+    clamp(calc(10px + 1rem), 3vw, 500px);
   color: #fff;
   font-family: 'Sohne Kraftig', sans-serif;
 }
@@ -40,7 +41,8 @@
   text-transform: uppercase;
 }
 
-.upcomingContainer {
+.upcomingContainer,
+.journalContainer {
   margin-top: 100px;
 }
 
@@ -138,6 +140,71 @@
 .emailForm input:-webkit-autofill:focus,
 .emailForm input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.upcomingGrid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.upcomingImage {
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.upcomingDates {
+  font-size: 0.75rem;
+}
+
+.workshopsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  row-gap: 40px;
+  margin-top: 20px;
+}
+
+.workshopImage {
+  width: 100%;
+  border-radius: 20px;
+  aspect-ratio: 1920 / 1283;
+  margin-bottom: 20px;
+}
+
+.collectiveHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.collectiveHeader a {
+  position: relative;
+  z-index: 5;
+}
+
+.headerAnchor {
+  font-family: 'Druk', sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(50px, calc(1rem + 3vw), 400px);
+  letter-spacing: 1px;
+  font-weight: normal;
+  padding-bottom: 20px;
+}
+
+.heroImage {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translateY(-50%);
+  width: 30%;
+  z-index: 1;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 800px) {

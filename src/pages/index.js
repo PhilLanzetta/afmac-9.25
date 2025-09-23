@@ -8,19 +8,25 @@ import * as styles from '../components/index.module.css'
 import VideoPlayer from '../components/videoPlayer'
 import ConvertKit from 'convertkit-react'
 import useWindowSize from '../utils/useWindowSize'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import slugify from 'slugify'
 
 const Index = ({ location, data }) => {
   const confirmed = location.hash === '#confirmed'
   const [loading, setLoading] = useState(confirmed ? false : true)
   const [activeVideo, setActiveVideo] = useState(null)
+  const [heroImage, setHeroImage] = useState(null)
   const {
     homeVideo,
     homeVideoMobile,
-    workshopDescription,
     workshopTable,
     upcomingEvents,
     aboutHeroText,
   } = data.contentfulHomePage
+
+  const workshops = data.allContentfulWorkshopEntry.nodes
+
+  const collective = data.contentfulCollectivePage.collective
 
   const { width, height } = useWindowSize()
 
@@ -100,25 +106,27 @@ const Index = ({ location, data }) => {
             <div className={styles.table}>
               {workshopTable.map((item, index) => (
                 <div key={index} className={styles.row}>
-                  <p className={styles.date}>
-                    {new Date(item.date).toLocaleDateString('en-US', {
-                      month: 'long',
-                      year: 'numeric',
-                      timeZone: 'Europe/London',
-                    })}
-                  </p>
-                  <div className={styles.rowTitle}>
-                    <p className={styles.chapter}>{item.chapter}</p>
-                    <p>—</p>
-                    <p className={styles.location}>{item.location}</p>
-                  </div>
-                  <p
-                    className={`${styles.status} ${
-                      item.status === 'Completed' ? styles.completed : ''
-                    }`}
-                  >
-                    {item.status}
-                  </p>
+                  <Fade triggerOnce={true}>
+                    <p className={styles.date}>
+                      {new Date(item.date).toLocaleDateString('en-US', {
+                        month: 'long',
+                        year: 'numeric',
+                        timeZone: 'Europe/London',
+                      })}
+                    </p>
+                    <div className={styles.rowTitle}>
+                      <p className={styles.chapter}>{item.chapter}</p>
+                      <p>—</p>
+                      <p className={styles.location}>{item.location}</p>
+                    </div>
+                    <p
+                      className={`${styles.status} ${
+                        item.status === 'Completed' ? styles.completed : ''
+                      }`}
+                    >
+                      {item.status}
+                    </p>
+                  </Fade>
                 </div>
               ))}
             </div>
@@ -127,6 +135,83 @@ const Index = ({ location, data }) => {
         <Fade triggerOnce={true}>
           <div className={styles.upcomingContainer}>
             <h2 className='heading'>Upcoming Events</h2>
+            <div className={styles.upcomingGrid}>
+              {upcomingEvents.map((event) => (
+                <div key={event.id}>
+                  <Fade triggerOnce={true}>
+                    {event.image && (
+                      <GatsbyImage
+                        image={event.image.gatsbyImageData}
+                        alt={event.image.description}
+                        className={styles.upcomingImage}
+                      ></GatsbyImage>
+                    )}
+                    <p>{event.title}</p>
+                    <p className={styles.upcomingDates}>{event.dates}</p>
+                  </Fade>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Fade>
+        <Fade triggerOnce={true}>
+          <div className={styles.journalContainer}>
+            <h2 className='heading'>Journal</h2>
+            <div className={styles.workshopsContainer}>
+              {workshops.map((entry, index) => (
+                <Link
+                  key={index}
+                  to={`/journal/${entry.slug}`}
+                  className={styles.multipleHighlightContainer}
+                >
+                  <Fade triggerOnce={true}>
+                    {entry.tileImage && (
+                      <GatsbyImage
+                        image={entry.tileImage.gatsbyImageData}
+                        alt={entry.tileImage.description}
+                        className={styles.workshopImage}
+                      ></GatsbyImage>
+                    )}
+                    <p>{entry.tileTitle}</p>
+                  </Fade>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </Fade>
+        <Fade triggerOnce={true}>
+          <div className={styles.journalContainer}>
+            <h2 className='heading'>Collective</h2>
+            <div className={styles.collectiveHeader}>
+              {collective.map((member, index) => (
+                <a
+                  href={`/collective/#${slugify(member.name, { lower: true })}`}
+                  key={index}
+                  className={styles.headerAnchor}
+                  onMouseEnter={
+                    width > 920 ? () => setHeroImage(member.headshot) : null
+                  }
+                >
+                  {member.name}
+                </a>
+              ))}
+              <AnimatePresence>
+                {heroImage && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    key={heroImage.id}
+                    className={styles.heroImage}
+                  >
+                    <GatsbyImage
+                      image={heroImage.gatsbyImageData}
+                      alt={heroImage.description}
+                    ></GatsbyImage>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </Fade>
         <div className={styles.emailSignUp} id='confirmed'>
@@ -196,6 +281,43 @@ export const query = graphql`
         date
         location
         status
+      }
+    }
+    allContentfulWorkshopEntry(
+      sort: { date: ASC }
+      filter: { title: { ne: "Placeholder (do not delete)" } }
+    ) {
+      nodes {
+        id
+        location
+        slug
+        tileImage {
+          description
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+        tileTitle
+        metadata {
+          tags {
+            id
+            name
+          }
+        }
+        introText {
+          childMarkdownRemark {
+            excerpt(format: HTML, pruneLength: 250)
+          }
+        }
+      }
+    }
+    contentfulCollectivePage {
+      collective {
+        id
+        headshot {
+          id
+          description
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+        name
       }
     }
   }
