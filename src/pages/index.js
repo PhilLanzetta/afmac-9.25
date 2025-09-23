@@ -116,7 +116,7 @@ const Index = ({ location, data }) => {
                     </p>
                     <div className={styles.rowTitle}>
                       <p className={styles.chapter}>{item.chapter}</p>
-                      <p>—</p>
+                      <p className={styles.dash}>—</p>
                       <p className={styles.location}>{item.location}</p>
                     </div>
                     <p

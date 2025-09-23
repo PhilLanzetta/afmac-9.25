@@ -207,6 +207,10 @@
   overflow: hidden;
 }
 
+.dash {
+  display: block;
+}
+
 @media screen and (max-width: 800px) {
   .indexMain {
     padding-top: 100px;
@@ -234,6 +238,35 @@
     width: 100%;
     margin: 60px 0;
     margin-top: 0;
+  }
+
+  .aboutText {
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rowTitle {
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+  }
+
+  .dash {
+    display: none;
+  }
+
+  .upcomingGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    row-gap: 40px;
+  }
+
+  .workshopsContainer {
+    grid-template-columns: 1fr;
   }
 }
 
