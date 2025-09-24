@@ -16,17 +16,18 @@
 
 .aboutHeroText {
   text-transform: uppercase;
-  margin-top: 100px;
+  margin-top: 200px;
+  margin-bottom: 200px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
 }
 
 .aboutText {
   width: 75%;
   font-size: 2rem;
+  line-height: 1.15;
   text-align: center;
 }
 
@@ -60,8 +61,8 @@
 
 .row {
   padding: 20px clamp(calc(10px + 1rem), 3vw, 500px);
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
   align-items: center;
   width: calc(100% + (clamp(calc(10px + 1rem), 3vw, 500px) * 2));
   margin-left: calc(clamp(calc(10px + 1rem), 3vw, 500px) * -1);
@@ -76,6 +77,7 @@
   gap: 10px;
   justify-content: center;
   font-size: 2rem;
+  text-align: center;
 }
 
 .completed {
@@ -85,7 +87,7 @@
 .status {
   text-align: right;
   font-family: 'Druk', sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   letter-spacing: 1px;
   font-weight: normal;
 }
@@ -170,7 +172,7 @@
   width: 100%;
   border-radius: 20px;
   aspect-ratio: 1920 / 1283;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .collectiveHeader {
@@ -190,17 +192,16 @@
 .headerAnchor {
   font-family: 'Druk', sans-serif;
   text-transform: uppercase;
-  font-size: clamp(50px, calc(1rem + 3vw), 400px);
+  font-size: clamp(60px, calc(1rem + 4vw), 700px);
   letter-spacing: 1px;
   font-weight: normal;
-  padding-bottom: 20px;
   position: relative;
 }
 
 .heroImage {
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 65%;
   transform: translateY(-50%);
   width: 30%;
   z-index: 1;
@@ -243,17 +244,22 @@
 
   .aboutText {
     width: 100%;
+    font-size: 1.5rem;
   }
 
   .row {
+    display: flex;
     flex-direction: column;
     gap: 10px;
+    width: calc(100% + (clamp(calc(10px + 1rem), 3vw, 500px) * 4));
+    margin-left: calc(clamp(calc(10px + 1rem), 3vw, 500px) * -2);
   }
 
   .rowTitle {
     flex-direction: column;
     text-align: center;
     gap: 0;
+    line-height: 1.15;
   }
 
   .dash {
@@ -268,6 +274,11 @@
 
   .workshopsContainer {
     grid-template-columns: 1fr;
+  }
+
+  .aboutHeroText {
+    margin-top: 100px;
+    margin-bottom: 100px;
   }
 }
 
