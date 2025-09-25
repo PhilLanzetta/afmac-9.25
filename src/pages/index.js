@@ -136,7 +136,7 @@ const Index = ({ location, data }) => {
         </Fade>
         <Fade triggerOnce={true}>
           <div className={styles.upcomingContainer}>
-            <h2 className='heading'>Upcoming Events</h2>
+            <h2 className='heading'>News</h2>
             <div className={styles.upcomingGrid}>
               {upcomingEvents.map((event) => (
                 <div key={event.id}>
