@@ -151,9 +151,14 @@
   gap: 20px;
 }
 
-.upcomingImage {
+.upcomingImageContainer {
   border-radius: 20px;
   margin-bottom: 20px;
+  aspect-ratio: 2 / 1.25;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
 }
 
 .upcomingDates {

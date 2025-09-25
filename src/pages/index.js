@@ -139,19 +139,26 @@ const Index = ({ location, data }) => {
             <h2 className='heading'>News</h2>
             <div className={styles.upcomingGrid}>
               {upcomingEvents.map((event) => (
-                <div key={event.id}>
+                <a
+                  href={event.linkUrl}
+                  target='_blank'
+                  rel='noreferrer'
+                  key={event.id}
+                >
                   <Fade triggerOnce={true}>
                     {event.image && (
-                      <GatsbyImage
-                        image={event.image.gatsbyImageData}
-                        alt={event.image.description}
-                        className={styles.upcomingImage}
-                      ></GatsbyImage>
+                      <div className={styles.upcomingImageContainer}>
+                        <GatsbyImage
+                          image={event.image.gatsbyImageData}
+                          alt={event.image.description}
+                          className={styles.upcomingImage}
+                        ></GatsbyImage>
+                      </div>
                     )}
                     <p>{event.title}</p>
                     <p className={styles.upcomingDates}>{event.dates}</p>
                   </Fade>
-                </div>
+                </a>
               ))}
             </div>
           </div>
@@ -289,6 +296,7 @@ export const query = graphql`
           gatsbyImageData
         }
         dates
+        linkUrl
       }
       workshopTable {
         chapter
