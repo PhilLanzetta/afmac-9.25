@@ -66,7 +66,7 @@ const Workshop = ({ location, data }) => {
         <Fade triggerOnce={true}>
           <div
             dangerouslySetInnerHTML={{
-              __html: introText.childMarkdownRemark.html,
+              __html: introText?.childMarkdownRemark?.html,
             }}
             className={styles.textModule}
           ></div>
