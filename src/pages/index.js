@@ -13,7 +13,7 @@ import slugify from 'slugify'
 
 const Index = ({ location, data }) => {
   const confirmed = location.hash === '#confirmed'
-  const [loading, setLoading] = useState(confirmed ? false : true)
+  // const [loading, setLoading] = useState(confirmed ? false : true)
   const [activeVideo, setActiveVideo] = useState(null)
   const [heroImage, setHeroImage] = useState(null)
   const {
@@ -34,39 +34,39 @@ const Index = ({ location, data }) => {
 
   const isMobile = height > width
 
-  useEffect(() => {
-    const body = document.body
-    if (loading === true) {
-      body.style.position = 'fixed'
-    } else {
-      body.style.position = ''
-    }
-  }, [loading])
+  // useEffect(() => {
+  //   const body = document.body
+  //   if (loading === true) {
+  //     body.style.position = 'fixed'
+  //   } else {
+  //     body.style.position = ''
+  //   }
+  // }, [loading])
 
-  useEffect(() => {
-    if (localStorage.getItem('intro')) {
-      setLoading(false)
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (localStorage.getItem('intro')) {
+  //     setLoading(false)
+  //   }
+  // }, [])
 
   useEffect(() => {
     document.getElementById('ck-first-name').required = true
     document.getElementById('ck-email').required = true
   }, [])
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      localStorage.setItem('intro', 'true')
-      setLoading(false)
-    }, 2000)
-    return () => {
-      clearTimeout(timer)
-    }
-  }, [])
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     localStorage.setItem('intro', 'true')
+  //     setLoading(false)
+  //   }, 2000)
+  //   return () => {
+  //     clearTimeout(timer)
+  //   }
+  // }, [])
 
   return (
     <>
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {loading && (
           <motion.div
             intial={{ opacity: 1 }}
@@ -76,7 +76,7 @@ const Index = ({ location, data }) => {
             <Loader></Loader>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
       <div className={styles.indexMain}>
         <div className={styles.homeVideo}>
           <VideoPlayer
