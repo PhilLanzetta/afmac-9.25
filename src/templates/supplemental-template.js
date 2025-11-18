@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import { graphql, Link } from "gatsby"
-import { Fade } from "react-awesome-reveal"
-import * as styles from "../components/journalEntry.module.css"
-import { GatsbyImage } from "gatsby-plugin-image"
-import VideoPlayer from "../components/videoPlayer"
-import VariedWidthCarousel from "../components/variedWidthCarousel"
-import Seo from "../components/seo"
+import React, { useState } from 'react'
+import { graphql, Link } from 'gatsby'
+import { Fade } from 'react-awesome-reveal'
+import * as styles from '../components/journalEntry.module.css'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import VideoPlayer from '../components/videoPlayer'
+import VariedWidthCarousel from '../components/variedWidthCarousel'
+import Seo from '../components/seo'
 
 const Supplemental = ({ location, data }) => {
   const [activeVideo, setActiveVideo] = useState(null)
@@ -15,19 +15,19 @@ const Supplemental = ({ location, data }) => {
     <>
       <div className={styles.journalMain}>
         <Fade triggerOnce={true}>
-          <h1 className="heading center">{title}</h1>
-          <p className="center">{supplementalLocation}</p>
+          <h1 className='heading center'>{title}</h1>
+          <p className='center'>{supplementalLocation}</p>
         </Fade>
         <Fade triggerOnce={true}>
           <p className={`center ${styles.date}`}>
-            {new Date(date).toLocaleDateString("en-US", {
-              month: "long",
-              year: "numeric",
-              timeZone: "Europe/London",
+            {new Date(date).toLocaleDateString('en-US', {
+              month: 'long',
+              year: 'numeric',
+              timeZone: 'Europe/London',
             })}
           </p>
         </Fade>
-        {content.map(item => {
+        {content.map((item) => {
           if (item.textId) {
             return (
               <Fade triggerOnce={true} key={item.textId}>
@@ -48,7 +48,7 @@ const Supplemental = ({ location, data }) => {
                       ? styles.imageModuleWithCaption
                       : styles.imageModule
                   }
-                  style={{ borderRadius: item.roundedCorners ? "20px" : "0px" }}
+                  style={{ borderRadius: item.roundedCorners ? '20px' : '0px' }}
                   image={item.image.gatsbyImageData}
                   alt={item.image.description}
                 ></GatsbyImage>
@@ -66,14 +66,14 @@ const Supplemental = ({ location, data }) => {
             return (
               <Fade triggerOnce={true} key={item.twoColumnId}>
                 <div className={styles.twoColumn}>
-                  {item.images.map(image => (
+                  {item.images.map((image) => (
                     <div key={image.id} className={styles.twoColumnImage}>
                       <GatsbyImage
                         image={image.image.gatsbyImageData}
                         alt={image.image.description}
                         className={styles.twoColumnImage}
                         style={{
-                          borderRadius: item.roundedCorners ? "20px" : "0px",
+                          borderRadius: image.roundedCorners ? '20px' : '0px',
                         }}
                       ></GatsbyImage>
                       {image.caption && (
@@ -91,14 +91,19 @@ const Supplemental = ({ location, data }) => {
             )
           } else if (item.videoId) {
             return (
-              <div className={styles.videoContainer} key={item.videoId}>
+              <Fade
+                triggerOnce={true}
+                className={styles.videoContainer}
+                style={{ borderRadius: item.roundedCorners ? '20px' : '0px' }}
+                key={item.videoId}
+              >
                 <VideoPlayer
                   video={item}
                   videoId={item.videoId}
                   activeVideo={activeVideo}
                   setActiveVideo={setActiveVideo}
                 ></VideoPlayer>
-              </div>
+              </Fade>
             )
           } else if (item.slideshowId) {
             return (
@@ -129,7 +134,7 @@ const Supplemental = ({ location, data }) => {
                       alt={item.tileDisplay.image.description}
                       className={styles.supplementalDisplay}
                       style={{
-                        borderRadius: "20px",
+                        borderRadius: '20px',
                       }}
                     ></GatsbyImage>
                   )}
@@ -139,7 +144,7 @@ const Supplemental = ({ location, data }) => {
                       alt={item.tileImage.description}
                       className={styles.supplementalDisplay}
                       style={{
-                        borderRadius: "20px",
+                        borderRadius: '20px',
                       }}
                     ></GatsbyImage>
                   )}
