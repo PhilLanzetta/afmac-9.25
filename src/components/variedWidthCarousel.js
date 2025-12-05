@@ -1,8 +1,8 @@
-import { GatsbyImage } from "gatsby-plugin-image"
-import React, { useState } from "react"
-import Slider from "react-slick"
-import * as styles from "./variedWidthCarousel.module.css"
-import useWindowSize from "../utils/useWindowSize"
+import { GatsbyImage } from 'gatsby-plugin-image'
+import React, { useState } from 'react'
+import Slider from 'react-slick'
+import * as styles from './variedWidthCarousel.module.css'
+import useWindowSize from '../utils/useWindowSize'
 
 function NextArrow(props) {
   const { onClick } = props
@@ -11,23 +11,23 @@ function NextArrow(props) {
       className={props.addClassName}
       onClick={onClick}
       onKeyDown={onClick}
-      role="button"
+      role='button'
       tabIndex={0}
-      aria-label="go to next"
+      aria-label='go to next'
     >
       <svg
-        xmlns="http://www.w3.org/2000/svg"
+        xmlns='http://www.w3.org/2000/svg'
         className={styles.carouselSVG}
-        viewBox="0 0 13.047 28.672"
+        viewBox='0 0 13.047 28.672'
       >
         <path
-          id="Polygon_3"
-          data-name="Polygon 3"
-          d="M0,12.009,14.011,0,28.021,12.009"
-          transform="translate(12.389 0.325) rotate(90)"
-          fill="none"
-          stroke="#000"
-          stroke-width="1"
+          id='Polygon_3'
+          data-name='Polygon 3'
+          d='M0,12.009,14.011,0,28.021,12.009'
+          transform='translate(12.389 0.325) rotate(90)'
+          fill='none'
+          stroke='#000'
+          stroke-width='1'
         />
       </svg>
     </div>
@@ -41,23 +41,23 @@ function PrevArrow(props) {
       className={props.addClassName}
       onClick={onClick}
       onKeyDown={onClick}
-      role="button"
+      role='button'
       tabIndex={0}
-      aria-label="go to previous"
+      aria-label='go to previous'
     >
       <svg
-        xmlns="http://www.w3.org/2000/svg"
+        xmlns='http://www.w3.org/2000/svg'
         className={styles.carouselSVG}
-        viewBox="0 0 13.047 28.672"
+        viewBox='0 0 13.047 28.672'
       >
         <path
-          id="Polygon_4"
-          data-name="Polygon 4"
-          d="M0,12.009,14.011,0,28.021,12.009"
-          transform="translate(0.659 28.346) rotate(-90)"
-          fill="none"
-          stroke="#000"
-          stroke-width="1"
+          id='Polygon_4'
+          data-name='Polygon 4'
+          d='M0,12.009,14.011,0,28.021,12.009'
+          transform='translate(0.659 28.346) rotate(-90)'
+          fill='none'
+          stroke='#000'
+          stroke-width='1'
         />
       </svg>
     </div>
@@ -78,7 +78,7 @@ const VariedWidthCarousel = ({ images }) => {
     useTransform: false,
     dots: false,
     arrows: true,
-    afterChange: current => setActiveSlide(current),
+    afterChange: (current) => setActiveSlide(current),
     variableWidth: true,
     nextArrow: <NextArrow addClassName={styles.nextArrow} />,
     prevArrow: <PrevArrow addClassName={styles.previousArrow} />,
@@ -90,10 +90,10 @@ const VariedWidthCarousel = ({ images }) => {
           {Math.round(activeSlide + 1)} / {images.length}
         </div>
       )}
-      <Slider {...settings} style={{ height: isMobile ? "20vh" : "50vh" }}>
-        {images?.map(image => {
+      <Slider {...settings} style={{ height: isMobile ? '50vh' : '50vh' }}>
+        {images?.map((image) => {
           const imgWidth = isMobile
-            ? (image.image?.width * 20) / image.image?.height
+            ? (image.image?.width * 50) / image.image?.height
             : (image.image?.width * 50) / image.image?.height
           return (
             <div
@@ -109,10 +109,10 @@ const VariedWidthCarousel = ({ images }) => {
                     image={image.image?.gatsbyImageData}
                     alt={image.image?.description}
                     style={{
-                      height: isMobile ? "20vh" : "50vh",
+                      height: isMobile ? '50vh' : '50vh',
                       width: `${imgWidth}vh`,
                     }}
-                    className={image.roundedCorners ? styles.imageBorder : ""}
+                    className={image.roundedCorners ? styles.imageBorder : ''}
                   ></GatsbyImage>
                   <figcaption
                     dangerouslySetInnerHTML={{
