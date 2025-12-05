@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import { graphql, Link } from "gatsby"
-import { Fade } from "react-awesome-reveal"
-import * as styles from "../components/journalEntry.module.css"
-import { GatsbyImage } from "gatsby-plugin-image"
-import VideoPlayer from "../components/videoPlayer"
-import VariedWidthCarousel from "../components/variedWidthCarousel"
-import Seo from "../components/seo"
+import React, { useState } from 'react'
+import { graphql, Link } from 'gatsby'
+import { Fade } from 'react-awesome-reveal'
+import * as styles from '../components/journalEntry.module.css'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import VideoPlayer from '../components/videoPlayer'
+import VariedWidthCarousel from '../components/variedWidthCarousel'
+import Seo from '../components/seo'
 
 const Workshop = ({ location, data }) => {
   const [activeVideo, setActiveVideo] = useState(null)
@@ -24,8 +24,8 @@ const Workshop = ({ location, data }) => {
     <>
       <div className={styles.journalMain}>
         <Fade triggerOnce={true}>
-          <h1 className="heading center">{title}</h1>
-          <p className="center">{workshopLocation}</p>
+          <h1 className='heading center'>{title}</h1>
+          <p className='center'>{workshopLocation}</p>
         </Fade>
         <Fade triggerOnce={true}>
           {heroContent && heroContent.imageId ? (
@@ -34,14 +34,14 @@ const Workshop = ({ location, data }) => {
               alt={heroContent.image.description}
               className={styles.headerImage}
               style={{
-                borderRadius: heroContent.roundedCorners ? "20px" : "0px",
+                borderRadius: heroContent.roundedCorners ? '20px' : '0px',
               }}
             ></GatsbyImage>
           ) : (
             <div
               className={styles.heroVideo}
               style={{
-                borderRadius: heroContent.roundedCorners ? "20px" : "0px",
+                borderRadius: heroContent.roundedCorners ? '20px' : '0px',
               }}
               key={heroContent.videoId}
             >
@@ -56,10 +56,10 @@ const Workshop = ({ location, data }) => {
         </Fade>
         <Fade triggerOnce={true}>
           <p className={`center ${styles.date}`}>
-            {new Date(date).toLocaleDateString("en-US", {
-              month: "long",
-              year: "numeric",
-              timeZone: "Europe/London",
+            {new Date(date).toLocaleDateString('en-US', {
+              month: 'long',
+              year: 'numeric',
+              timeZone: 'Europe/London',
             })}
           </p>
         </Fade>
@@ -71,12 +71,14 @@ const Workshop = ({ location, data }) => {
             className={styles.textModule}
           ></div>
         </Fade>
-        {content?.map(item => {
+        {content?.map((item) => {
           if (item.textId) {
             return (
               <Fade triggerOnce={true} key={item.textId}>
                 <div
-                  className={styles.textModule}
+                  className={`${styles.textModule} ${
+                    item.creditText ? styles.creditText : ''
+                  }`}
                   dangerouslySetInnerHTML={{
                     __html: item.text.childMarkdownRemark.html,
                   }}
@@ -92,7 +94,7 @@ const Workshop = ({ location, data }) => {
                       ? styles.imageModuleWithCaption
                       : styles.imageModule
                   }
-                  style={{ borderRadius: item.roundedCorners ? "20px" : "0px" }}
+                  style={{ borderRadius: item.roundedCorners ? '20px' : '0px' }}
                   image={item.image.gatsbyImageData}
                   alt={item.image.description}
                 ></GatsbyImage>
@@ -111,7 +113,7 @@ const Workshop = ({ location, data }) => {
               <Fade
                 triggerOnce={true}
                 className={styles.videoContainer}
-                style={{ borderRadius: item.roundedCorners ? "20px" : "0px" }}
+                style={{ borderRadius: item.roundedCorners ? '20px' : '0px' }}
                 key={item.videoId}
               >
                 <VideoPlayer
@@ -126,14 +128,14 @@ const Workshop = ({ location, data }) => {
             return (
               <Fade triggerOnce={true} key={item.twoColumnId}>
                 <div className={styles.twoColumn}>
-                  {item.images.map(image => (
+                  {item.images.map((image) => (
                     <div key={image.id} className={styles.twoColumnImage}>
                       <GatsbyImage
                         image={image.image.gatsbyImageData}
                         alt={image.image.description}
                         className={styles.twoColumnImage}
                         style={{
-                          borderRadius: image.roundedCorners ? "20px" : "0px",
+                          borderRadius: image.roundedCorners ? '20px' : '0px',
                         }}
                       ></GatsbyImage>
                       {image.caption && (
@@ -151,7 +153,10 @@ const Workshop = ({ location, data }) => {
             )
           } else if (item.slideshowId) {
             return (
-              <VariedWidthCarousel images={item.images} key={item.slideshowId}></VariedWidthCarousel>
+              <VariedWidthCarousel
+                images={item.images}
+                key={item.slideshowId}
+              ></VariedWidthCarousel>
             )
           } else {
             return <div>Unknown Content</div>
@@ -176,8 +181,8 @@ const Workshop = ({ location, data }) => {
                       className={styles.supplementalDisplay}
                       style={{
                         borderRadius: item.tileDisplay.roundedCorners
-                          ? "20px"
-                          : "0px",
+                          ? '20px'
+                          : '0px',
                       }}
                     ></GatsbyImage>
                   )}
@@ -263,6 +268,7 @@ export const query = graphql`
         }
         ... on ContentfulTextModule {
           textId: id
+          creditText
           text {
             childMarkdownRemark {
               html
