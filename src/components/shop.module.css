@@ -1,0 +1,269 @@
+.shopMain {
+  min-height: 100vh;
+  background: #000;
+  padding: 180px clamp(calc(10px + 1rem), 3vw, 500px);
+  color: #fff;
+  font-family: 'Sohne', sans-serif;
+}
+
+.shopHead,
+.shopHeadContainer {
+  position: relative;
+  z-index: 10;
+}
+
+.headline {
+  padding: 80px 10%;
+  font-size: calc(1rem + 1vw);
+  text-align: center;
+}
+
+.shoppingBagContainer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  font-size: 0.9rem;
+}
+
+.shoppingBag {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.shoppingBag svg {
+  height: 1rem;
+  width: 1rem;
+}
+
+.shoppingBagContainer button {
+  cursor: pointer;
+}
+
+.productsContainer {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  row-gap: 60px;
+}
+
+.productImageContainer {
+  background: #c0c0c0;
+  aspect-ratio: 1 / 1.25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cartProductImageContainer {
+  background: #c0c0c0;
+  aspect-ratio: 1 / 1.25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 150px;
+}
+
+.productImageContainer:hover .productFirstImage {
+  opacity: 0;
+  transition: all 400ms;
+}
+
+.productImageContainer:hover .productSecondImage {
+  opacity: 1;
+  transition: all 400ms;
+}
+
+.productImage,
+.productFirstImage,
+.productSecondImage {
+  width: 100%;
+  transition: all 400ms;
+}
+
+.productSecondImage {
+  position: absolute !important;
+  opacity: 0;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.product p {
+  margin-bottom: 0;
+}
+
+.product button,
+.product select {
+  cursor: pointer;
+}
+
+.productTitle {
+  text-transform: uppercase;
+}
+
+.productInfo {
+  font-size: 0.75rem;
+}
+
+.addToCart,
+.sizeSelector {
+  padding: 5px;
+  border: 2px solid #fff;
+  border-radius: 7px;
+  font-size: 0.75rem;
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.sizeSelector:focus {
+  outline: none;
+}
+
+.addToCart {
+  margin-top: auto;
+}
+
+.addToCart:hover {
+  background: #fff;
+  color: #000;
+}
+
+.cartNumber {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(80%, -50%);
+}
+
+.cartContainer {
+  position: absolute;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-bottom: 1px solid #fff;
+  width: 150%;
+  margin-left: -25%;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.cartSummary {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkoutBtn {
+  padding: 5px;
+  text-align: center;
+  border: 2px solid #fff;
+  border-radius: 7px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.cartHeading {
+  margin-bottom: 10px;
+}
+
+.cartRowContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.cartProductRight {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cartProductContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.cartProductInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-transform: uppercase;
+}
+
+.cartProductInfo p {
+  margin-bottom: 0;
+}
+
+.cartSize {
+  font-size: 0.75rem;
+}
+
+.quantityBtns {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.clickToCloseCart {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  .productsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product button,
+  .product select {
+    height: 28px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .productsContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .cartProductRight {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cartRowContainer {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .cartProductContainer {
+    flex-direction: column;
+  }
+
+  .headline {
+    padding: 80px 0 40px 0;
+    font-size: calc(1rem + 1vw);
+  }
+}

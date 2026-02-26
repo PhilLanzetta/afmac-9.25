@@ -94,6 +94,7 @@
 
 .emailHeading {
   text-transform: uppercase;
+  margin-bottom: 0px;
 }
 
 .emailSignUp {
@@ -219,6 +220,11 @@
 
 .dash {
   display: block;
+}
+
+.emailSubHead {
+  font-family: "Sohne", sans-serif;
+  font-size: calc(1rem * 0.8);
 }
 
 @media screen and (max-width: 1060px) {

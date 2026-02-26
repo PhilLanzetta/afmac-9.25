@@ -193,6 +193,7 @@ const Index = ({ location, data }) => {
             <p className={styles.emailHeading}>
               {confirmed ? 'Thank You' : 'Join the Journey'}
             </p>
+            <p className={styles.emailSubHead}>Sign up to receive our newsletter</p>
             <ConvertKit
               formId={process.env.GATSBY_FORM_ID}
               className={
