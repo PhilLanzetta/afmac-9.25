@@ -189,6 +189,27 @@ const Index = ({ location, data }) => {
           </div>
         </Fade>
         <Fade triggerOnce={true}>
+          <div className={styles.emailSignUp} id='confirmed'>
+            <p className={styles.emailHeading}>
+              {confirmed ? 'Thank You' : 'Join the Journey'}
+            </p>
+            <ConvertKit
+              formId={process.env.GATSBY_FORM_ID}
+              className={
+                confirmed ? styles.emailFormConfirmed : styles.emailForm
+              }
+              namePlaceholder='Name'
+              emailPlaceholder='Email'
+              submitText=' →'
+            />
+            {confirmed && (
+              <p className={styles.confirmSubtext}>
+                Please check your email to confirm your subscription.
+              </p>
+            )}
+          </div>
+        </Fade>
+        <Fade triggerOnce={true}>
           <div className={styles.journalContainer}>
             <h2 className='heading'>Collective</h2>
             <div className={styles.collectiveHeader}>
@@ -235,23 +256,6 @@ const Index = ({ location, data }) => {
             </div>
           </div>
         </Fade>
-        <div className={styles.emailSignUp} id='confirmed'>
-          <p className={styles.emailHeading}>
-            {confirmed ? 'Thank You' : 'Join the Journey'}
-          </p>
-          <ConvertKit
-            formId={process.env.GATSBY_FORM_ID}
-            className={confirmed ? styles.emailFormConfirmed : styles.emailForm}
-            namePlaceholder='Name'
-            emailPlaceholder='Email'
-            submitText=' →'
-          />
-          {confirmed && (
-            <p className={styles.confirmSubtext}>
-              Please check your email to confirm your subscription.
-            </p>
-          )}
-        </div>
       </div>
     </>
   )

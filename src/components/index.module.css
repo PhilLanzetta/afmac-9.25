@@ -97,7 +97,10 @@
 }
 
 .emailSignUp {
-  margin-top: 40px;
+  margin-top: 100px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  padding: 40px;
 }
 
 .emailForm {
@@ -216,6 +219,12 @@
 
 .dash {
   display: block;
+}
+
+@media screen and (max-width: 1060px) {
+  .emailSignUp {
+    padding: 20px;
+  }
 }
 
 @media screen and (max-width: 800px) {
