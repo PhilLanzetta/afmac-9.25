@@ -6,10 +6,13 @@ const Footer = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.footerContainer}>
-        <Link to='/' className={styles.footerLogo}>
-          African Film & <br />
-          Media Arts Collective
-        </Link>
+        <div className={styles.footerLeft}>
+          <Link to='/' className={styles.footerLogo}>
+            African Film & <br />
+            Media Arts Collective
+          </Link>
+          <p className={styles.footerAcknowledgment}>AFMAC IS A PROJECT OF ENSEMBLE MEDIA</p>
+        </div>
         <div className={styles.footerLinkContainer}>
           <div>
             <a

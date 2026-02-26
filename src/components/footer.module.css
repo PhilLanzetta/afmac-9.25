@@ -33,8 +33,19 @@
   line-height: 0.9;
 }
 
+.footerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 a.footerLogo:hover {
   opacity: 1;
+}
+
+.footerAcknowledgment {
+  font-family: "Sohne", sans-serif;
+  font-size: calc(1rem * 0.8);
 }
 
 .footerLinkContainer {
