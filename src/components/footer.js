@@ -11,7 +11,7 @@ const Footer = () => {
             African Film & <br />
             Media Arts Collective
           </Link>
-          <p className={styles.footerAcknowledgment}>AFMAC IS A PROJECT OF ENSEMBLE MEDIA</p>
+          <p className={styles.footerAcknowledgment}>AFMAC IS A PROJECT OF ENSEMBLE MEDIA ENTERPRISES</p>
         </div>
         <div className={styles.footerLinkContainer}>
           <div>
