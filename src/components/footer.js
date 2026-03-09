@@ -11,19 +11,9 @@ const Footer = () => {
             African Film & <br />
             Media Arts Collective
           </Link>
-          <p className={styles.footerAcknowledgment}>AFMAC IS A PROJECT OF ENSEMBLE MEDIA ENTERPRISES</p>
+          <p className={styles.footerAcknowledgment}>AFMAC IS A PROJECT OF ENSEMBLE ENTERPRISES</p>
         </div>
         <div className={styles.footerLinkContainer}>
-          <div>
-            <a
-              href='https://afmac.memberful.com'
-              target='_blank'
-              rel='noreferrer'
-              className={styles.footerUpper}
-            >
-              Participants
-            </a>
-          </div>
           <div className={styles.footerColumn}>
             <Link to='/about' className={styles.footerUpper}>
               About
