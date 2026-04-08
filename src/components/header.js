@@ -1217,13 +1217,6 @@ const Header = ({ journal }) => {
           About
         </Link>
         <Link
-          to='/news'
-          className={styles.menuLink}
-          activeClassName={styles.activeLink}
-        >
-          News
-        </Link>
-        <Link
           to='/shop'
           className={styles.menuLink}
           activeClassName={styles.activeLink}

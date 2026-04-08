@@ -11,12 +11,17 @@ const Footer = () => {
             African Film & <br />
             Media Arts Collective
           </Link>
-          <p className={styles.footerAcknowledgment}>AFMAC IS A PROJECT OF ENSEMBLE ENTERPRISES</p>
+          <p className={styles.footerAcknowledgment}>
+            AFMAC IS A PROJECT OF ENSEMBLE ENTERPRISES
+          </p>
         </div>
         <div className={styles.footerLinkContainer}>
           <div className={styles.footerColumn}>
             <Link to='/about' className={styles.footerUpper}>
               About
+            </Link>
+            <Link to='/news' className={styles.footerUpper}>
+              News
             </Link>
           </div>
           <div className={styles.footerColumn}>
