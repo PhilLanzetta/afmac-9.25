@@ -136,7 +136,9 @@ const Index = ({ location, data }) => {
         </Fade>
         <Fade triggerOnce={true}>
           <div className={styles.upcomingContainer}>
-            <h2 className='heading'>News</h2>
+            <Link to='/news' className='heading'>
+              News
+            </Link>
             <div className={styles.upcomingGrid}>
               {upcomingEvents.map((event) => (
                 <a
@@ -193,7 +195,9 @@ const Index = ({ location, data }) => {
             <p className={styles.emailHeading}>
               {confirmed ? 'Thank You' : 'Join the Journey'}
             </p>
-            <p className={styles.emailSubHead}>Sign up to receive our newsletter</p>
+            <p className={styles.emailSubHead}>
+              Sign up to receive our newsletter
+            </p>
             <ConvertKit
               formId={process.env.GATSBY_FORM_ID}
               className={
